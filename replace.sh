@@ -8,3 +8,4 @@ for f in *.raml; do
  done;
  for f in *.raml; do `oas-raml-converter --from RAML --to RAML $f > ../processed_output/$f`; echo 'converted from 0.8 to 1.0:'$f; done;
  for f in ../processed_output/*.raml; do `raml2html $f > ${f%.*}.html`; echo 'done convert from raml to html:'$f; done;
+ for f in ../processed_output/*.raml; do `oas-raml-converter --from RAML --to OAS20 $f > ../processed_output/${f%.*}.json`; echo 'done convert from raml 1.0 to swagger 2.0'; done;
